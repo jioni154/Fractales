@@ -29,7 +29,7 @@ int main(void)
    
    al_clear_to_color(al_color_name("black"));
    al_flip_display();
-   //Ir viendolo desde el manual, asi se acostumbran a leerlo hahahaha re
+   //Ir viendolo desde el manual, asi se acostumbran a leerlo jastarstas re
    
    
    
