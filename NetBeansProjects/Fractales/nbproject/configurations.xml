@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>area.h</itemPath>
+      <itemPath>definesconstantes.h</itemPath>
+      <itemPath>fractal.h</itemPath>
+      <itemPath>perimetro.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,7 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>area.c</itemPath>
+      <itemPath>fractal.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>perimetro.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -36,13 +43,30 @@
       </toolsSet>
       <compileType>
         <linkerTool>
+          <additionalDep>fractal.c perimetro.c area.c</additionalDep>
           <linkerLibItems>
             <linkerOptionItem>`pkg-config --libs allegro-5.0`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs allegro_primitives-5.0`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs allegro_color-5.0`</linkerOptionItem>
+            <linkerLibStdlibItem>Mathematics</linkerLibStdlibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="area.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="area.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="definesconstantes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fractal.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="fractal.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="perimetro.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="perimetro.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -65,7 +89,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="area.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="area.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="definesconstantes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fractal.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="fractal.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="perimetro.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="perimetro.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

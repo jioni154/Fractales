@@ -35,7 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/area.o \
+	${OBJECTDIR}/fractal.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/perimetro.o
 
 
 # C Compiler Flags
@@ -52,20 +55,41 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=`pkg-config --libs allegro-5.0` `pkg-config --libs allegro_primitives-5.0`  
+LDLIBSOPTIONS=`pkg-config --libs allegro-5.0` `pkg-config --libs allegro_primitives-5.0` `pkg-config --libs allegro_color-5.0` -lm   
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fractales
 
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fractales: fractal.c
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fractales: perimetro.c
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fractales: area.c
+
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fractales: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fractales ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/area.o: area.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g `pkg-config --cflags allegro-5.0` `pkg-config --cflags allegro_primitives-5.0` `pkg-config --cflags allegro_color-5.0`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/area.o area.c
+
+${OBJECTDIR}/fractal.o: fractal.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g `pkg-config --cflags allegro-5.0` `pkg-config --cflags allegro_primitives-5.0` `pkg-config --cflags allegro_color-5.0`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fractal.o fractal.c
+
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags allegro-5.0` `pkg-config --cflags allegro_primitives-5.0`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g `pkg-config --cflags allegro-5.0` `pkg-config --cflags allegro_primitives-5.0` `pkg-config --cflags allegro_color-5.0`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+
+${OBJECTDIR}/perimetro.o: perimetro.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g `pkg-config --cflags allegro-5.0` `pkg-config --cflags allegro_primitives-5.0` `pkg-config --cflags allegro_color-5.0`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/perimetro.o perimetro.c
 
 # Subprojects
 .build-subprojects:
